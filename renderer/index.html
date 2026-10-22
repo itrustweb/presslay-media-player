@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Presslay Media Player</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src pmp:; connect-src pmp:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+<aside class="side">
+  <div class="brand"><span class="logo" id="logo"></span><b>Presslay</b><span>Media Player</span></div>
+  <button class="btn wide" id="newpl"></button>
+  <nav id="pls" class="pls"></nav>
+</aside>
+<main class="main">
+  <header class="head">
+    <div class="ttl"><h1 id="plname"></h1><span id="plcount"></span></div>
+    <div class="acts">
+      <button class="btn" id="addf"></button>
+      <button class="btn o" id="addd"></button>
+      <button class="btn o" id="imp">Import</button>
+      <button class="btn o" id="exp">Export</button>
+    </div>
+    <input id="q" type="search" placeholder="Search this playlist" aria-label="Search">
+  </header>
+  <div class="cols"><span>#</span><span>Title</span><span>Album</span><span>Time</span><span></span></div>
+  <div id="list" class="list"></div>
+  <div id="drop" class="drop"><div>Drop music or folders to add them</div></div>
+</main>
+<footer class="bar" id="bar">
+  <div class="np">
+    <div class="art" id="art"></div>
+    <div class="meta"><b id="nt">Nothing playing</b><span id="na"></span></div>
+  </div>
+  <div class="mid">
+    <div class="ctl">
+      <button class="ib" id="bshuf" title="Shuffle (S)"></button>
+      <button class="ib" id="bprev" title="Previous"></button>
+      <button class="ib big" id="bplay" title="Play / pause (Space)"></button>
+      <button class="ib" id="bnext" title="Next"></button>
+      <button class="ib" id="brep" title="Repeat (R)"></button>
+    </div>
+    <div class="seek"><span id="tc">0:00</span><input type="range" id="seek" min="0" max="1000" value="0" aria-label="Seek"><span id="td">0:00</span></div>
+  </div>
+  <div class="right">
+    <button class="ib" id="bmute" title="Mute (M)"></button>
+    <input type="range" id="vol" min="0" max="100" value="80" aria-label="Volume">
+    <button class="ib" id="beq" title="Equalizer"></button>
+    <button class="ib" id="btheme" title="Light / dark"></button>
+    <button class="ib" id="bmini" title="Mini player"></button>
+  </div>
+</footer>
+<div id="eqp" class="eqp" hidden>
+  <div class="eqbox">
+    <div class="eqhead"><b>Equalizer</b><select id="preset"></select><button class="btn o sm" id="eqclose">Close</button></div>
+    <canvas id="viz" width="560" height="90"></canvas>
+    <div class="eqs" id="eqs"></div>
+  </div>
+</div>
+<dialog id="dlg">
+  <form method="dialog">
+    <h3 id="dlgt"></h3>
+    <input id="dlgi" type="text" maxlength="60">
+    <div class="dlgbtns"><button class="btn" value="ok" id="dlgok">OK</button><button class="btn o" value="cancel" formnovalidate>Cancel</button></div>
+  </form>
+</dialog>
+<div id="toast" class="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
